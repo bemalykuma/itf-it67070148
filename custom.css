@@ -43,8 +43,8 @@ nav h1 {
 }
 
 .button {
-    background-color: rgb(251, 255, 227);
-    border-color: rgb(82, 62, 36);
+    background-color: rgb(255, 242, 123);
+    border: 0cap;
     cursor: pointer;
 }
 
