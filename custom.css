@@ -26,16 +26,11 @@ nav h1 {
     text-align: center;
     align-self: center;
     color: rgb(82, 62, 36);
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .container div {
     justify-self: right;
-}
-
-
-.container button {
-    background-color: rgb(255, 253, 231);
-    border: 0cap;
 }
 
 .picture {
@@ -47,17 +42,30 @@ nav h1 {
     background-color: rgb(255, 242, 123);
     border: 0cap;
     cursor: pointer;
+    width: 280px;
+    height: 50px;
+    color: rgb(98, 75, 44);
+    font-size: 25px;
+    box-shadow: 2px 2px 4px #6134133e;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 4px;
 }
 
-button b {
-    color: rgb(82, 62, 36);
-    font-size: 25px;
+.button:hover {
+    transition: 0.3s;
+    width: 285px;
+    height: 55px;
 }
 
 .button_position {
     text-align: center;
 }
 
+.button_position h2 {
+    color: rgba(98, 75, 44, 0.621);
+    font-size: 20px;
+    padding: 10px;
+}
 .ps {
     margin: 50px;
     font-size: 20px;
@@ -67,4 +75,8 @@ button b {
 
 .ps a {
     color: rgb(200, 151, 18);
+}
+
+.ps a:hover {
+    color: rgb(154, 115, 24);
 }
