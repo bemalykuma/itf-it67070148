@@ -15,11 +15,6 @@ nav h1 {
     justify-self: center;
 }
 
-.contact {
-    align-self: center;
-    padding-left: 7px;
-    padding-right: 7px;
-}
 .container {
     width: 100%;
     height: 60px;
@@ -35,6 +30,16 @@ nav h1 {
 
 .container div {
     justify-self: left;
+}
+.container a {
+    text-align: right;
+    cursor: pointer;
+
+
+}
+.container button {
+    background-color: rgb(255, 253, 231);
+    border: 0cap;
 }
 
 .picture {
@@ -62,4 +67,8 @@ button b {
     font-size: 20px;
     color: rgb(82, 62, 36);
     margin-bottom: 10px;
+}
+
+.ps a {
+    color: rgb(200, 151, 18);
 }
