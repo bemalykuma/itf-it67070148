@@ -29,14 +29,10 @@ nav h1 {
 }
 
 .container div {
-    justify-self: left;
+    justify-self: right;
 }
-.container a {
-    text-align: right;
-    cursor: pointer;
 
 
-}
 .container button {
     background-color: rgb(255, 253, 231);
     border: 0cap;
