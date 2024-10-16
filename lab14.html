@@ -11,40 +11,111 @@
     <nav class="container">
         <h1>Membership</h1>
     </nav>
-    <div class="profile" id="profile">
-        <div class="notify">
-            <p>1</p>
+    <div class="flex_container">
+        <div class="avatar">
+            <div id="profile" style="position: relative; height: 183px; width: 183px; background-image: url('https://i.pinimg.com/474x/78/df/c1/78dfc12e599835ab1ff5facbc08d0950.jpg'); border-radius: 100%; background-position: center; background-size: cover;">
+                <div style="position: absolute; height: 30px; width: 30px; background-color: red; border-radius: 100%; display: flex; justify-content: center; align-items: center; bottom: 3mm; right: 10px;"><p>1</p></div>
+            </div>
         </div>
     </div>
-    <div class="name_change">
-        <h1 id="user">Pomupomu</h1>
-        <h1>Chan</h1>
+    <div>
+        <div class="name_change">
+            <h1 id="user" onclick="contact()">Yaowapa Thawornwiriyanan 67070148</h1>
+        </div>
+        <div class="username">
+            <label><b>Username</b></label>
+            <input type="text" id = "name" placeholder="Enter your username">
+            <button onclick="setUsername()">SET</button>
+        </div>
+        <div class="image_change">
+            <label><b>Profile image</b></label>
+            <input type="text" id = "img_url" placeholder="Enter image URL">
+            <button onclick="setImage()">SET</button>
+        </div>
+        <h2>Member's Phone Number List</h2>
+        <div class="num_list">
+            <input type="text" id="name_num" placeholder="Name">
+            <input type="text" id="tel" placeholder="Tel">
+            <button onclick="addTable()">ADD</button>
+            <button onclick="saveCSV()">EXPORT</button>
+        </div>
     </div>
-    <div class="username">
-        <label><b>Username</b></label>
-        <input type="text" id = "name" placeholder="Enter your username">
-        <button>SET</button>
-    </div>
-    <div class="image_change">
-        <label><b>Profile image</b></label>
-        <input type="text" id = "img_url" placeholder="Enter image URL">
-        <button>SET</button>
-    </div>
-    <h2>Member's Phone Number List</h2>
-    <div class="num_list">
-        <input type="text" id="name_num" placeholder="Name">
-        <input type="text" id="tel" placeholder="Tel">
-        <button>ADD</button>
-        <button>EXPORT</button>
-    </div>
-    <div class="table_">
-        <table>
-            <tr class="head">
+    <div class="tab">
+        <table id="phoneTable">
+            <tr>
                 <th>No.</th>
                 <th>Name</th>
                 <th>Phone Number</th>
             </tr>
         </table>
     </div>
+
+    <script>
+        let username = document.getElementById("user");
+        let input = document.getElementById("name");
+        let profile = document.getElementById("profile");
+        let imageInput = document.getElementById("img_url");
+        let table = document.getElementById("phoneTable");
+        let count = 0;
+        let phonenumber = [];
+        
+        function contact() {
+            location.href = "https://github.com/bemalykuma";
+        };
+
+        function setUsername() {
+            username.textContent = input.value;
+            input.value = "";
+        };
+        
+        function setImage() {
+            profile.style.backgroundImage = "url(" + imageInput.value + ")";
+            imageInput.value = "";
+        };
+    
+        function addTable() {
+            count += 1;
+            const row = document.createElement("tr");
+    
+            const cellNo = document.createElement("td");
+            const cellName = document.createElement("td");
+            const cellTel = document.createElement("td");
+    
+            cellNo.textContent = count;
+            cellName.textContent = document.getElementById("name_num").value;
+            cellTel.textContent = document.getElementById("tel").value;
+    
+            row.appendChild(cellNo);
+            row.appendChild(cellName);
+            row.appendChild(cellTel);
+    
+            table.appendChild(row);
+    
+            let arr = [];
+            arr.push(count);
+            arr.push(document.getElementById("name_num").value);
+            arr.push(document.getElementById("tel").value);
+    
+            phonenumber.push(arr);
+            console.log(phonenumber);
+    
+            document.getElementById("name_num").value = "";
+            document.getElementById("tel").value = "";
+        };
+    
+        function saveCSV() {
+            const csvContent = phonenumber.map(row => row.join(",")).join("\n"); // Convert array to CSV string
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "data.csv");
+            link.style.visibility = "hidden";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+    
+    </script>
 </body>
 </html>
